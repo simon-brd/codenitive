@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function getAll()
+    public static function getAll()
     {
         return User::users();
     }

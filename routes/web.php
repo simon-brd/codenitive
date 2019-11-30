@@ -11,17 +11,14 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('quizz');
-})->name('allQuizz');
+Route::get('/home','ViewController@homeQuizz')->name('allQuizz');
 
-Route::get('/MyQuizz', function () {
-    return view('activeQuizz');
-})->name('activeQuizz');
+Route::get('/MyQuizz', 'ViewController@activeQuizz')->name('activeQuizz');
 
-Route::get('/archiveQuizz', function () {
-    return view('archiveQuizz');
-})->name('archiveQuizz');
+Route::get('/archiveQuizz', 'ViewController@archiveQuizz')->name('archiveQuizz');
+
+
+
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -30,3 +27,4 @@ Route::get('/login', function () {
 Route::get('/logout', function () {
     return view('auth.login');
 })->name('logout');
+

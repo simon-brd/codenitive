@@ -26,10 +26,7 @@ class User extends Authenticatable
 
     public function save(array $options = [])
     {
-        if (is_null($this->api_token)){
-            $this->id = Str::random(32);
-            $this->api_token = Str::random(64);
-        }
+        $this->id = Str::random(32);
         parent::save($options);
     }
 }

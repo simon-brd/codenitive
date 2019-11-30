@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', function () {
+    return view('quizz');
+})->name('allQuizz');
+
+Route::get('/MyQuizz', function () {
+    return view('activeQuizz');
+})->name('activeQuizz');
+
+Route::get('/arch', function () {
+    return view('archiveQuizz');
+})->name('archiveQuizz');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/logout', function () {
+    return view('auth.login');
+})->name('logout');

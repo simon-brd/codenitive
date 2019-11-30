@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Iteration extends Model
 {
@@ -19,5 +20,11 @@ class Iteration extends Model
     public function getKeyType()
     {
         return 'string';
+    }
+
+    public function save(array $options = [])
+    {
+        $this->id = Str::random(32);
+        parent::save($options);
     }
 }

@@ -11,6 +11,8 @@ class Quizz extends Model
 
     protected $fillable = ['id','label','owner_id','validationNote','limitNote','overview'];
 
+    public $timestamps = false;
+
     public function getIncrementing()
     {
         return false;
@@ -19,11 +21,6 @@ class Quizz extends Model
     public function getKeyType()
     {
         return 'string';
-    }
-
-    public static function quizz()
-    {
-        return Quizz::all();
     }
 
     public function save(array $options = [])

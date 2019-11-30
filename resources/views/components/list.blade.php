@@ -1,12 +1,10 @@
 <div class="list-group">
-    @foreach($items as $item)
+    @foreach($quizzs as $quizz)
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
         <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small>3 days ago</small>
+            <h5 class="mb-1">{{$quizz->label}}</h5>
         </div>
-        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-        <small>Donec id elit non mi porta.</small>
+        <p class="mb-1">{{$quizz->overview}}</p>
     </a>
     @endforeach
 </div>

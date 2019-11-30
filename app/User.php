@@ -19,11 +19,6 @@ class User extends Authenticatable
         'id','email','firstname', 'lastname', 'password', 'api_token'
     ];
 
-    public static function users()
-    {
-        return User::all();
-    }
-
     public function getIncrementing()
     {
         return false;

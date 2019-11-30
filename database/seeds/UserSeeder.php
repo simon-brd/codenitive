@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     public function createUser()
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 5; $i++){
+        for ($i = 0; $i < 0; $i++){
             $user = new \App\User();
             $user->email = $faker->email;
             $user->firstname = $faker->firstName;

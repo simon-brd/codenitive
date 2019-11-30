@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Quizz;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
 {
     public function homeQuizz()
     {
-        return view('quizz');
+        $quizzs = Quizz::all();
+        return view('quizz', ['quizzs'=> $quizzs]);
     }
 
     public function activeQuizz()

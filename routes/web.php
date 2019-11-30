@@ -19,7 +19,7 @@ Route::get('/MyQuizz', function () {
     return view('activeQuizz');
 })->name('activeQuizz');
 
-Route::get('/arch', function () {
+Route::get('/archiveQuizz', function () {
     return view('archiveQuizz');
 })->name('archiveQuizz');
 

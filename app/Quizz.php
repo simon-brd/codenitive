@@ -11,6 +11,16 @@ class Quizz extends Model
 
     protected $fillable = ['id','label','owner_id','validationNote','limitNote','overview'];
 
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
     public static function quizz()
     {
         return Quizz::all();

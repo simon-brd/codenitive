@@ -24,6 +24,16 @@ class User extends Authenticatable
         return User::all();
     }
 
+    public function getIncrementing()
+    {
+        return false;
+    }
+
+    public function getKeyType()
+    {
+        return 'string';
+    }
+
     public function save(array $options = [])
     {
         $this->id = Str::random(32);

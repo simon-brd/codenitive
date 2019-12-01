@@ -177,14 +177,17 @@ return [
         [
             'text' => 'Quizz',
             'route'  => 'homeQuizz',
+            'icon' => 'fa fa-file-alt'
         ],
         [
             'text' => 'Mes Quizz',
             'route'  => 'activeQuizz',
+            'icon' => 'fa fa-tasks'
         ],
         [
             'text' => 'Quizz Archivés',
             'route'  => 'archiveQuizz',
+            'icon' => 'fa fa-folder-open'
         ],
     ],
 

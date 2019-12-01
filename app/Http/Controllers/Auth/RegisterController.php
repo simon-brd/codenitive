@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,17 +75,36 @@ class RegisterController extends Controller
 
     public function view()
     {
-        return view('auth.register');
+        $datas = [];
+        if(session()->exists('error_message')){
+            $datas['error_message'] = session()->get('error_message');
+            session()->remove('error_message');
+        }
+        return view('auth.register', $datas);
     }
 
     public function register(Request $request)
     {
+        if(empty($request['name'])|| empty($request['email']) || empty($request['password']) || empty($request['password_confirmation'])){
+            session()->put('error_message', 'Veuillez remplir tous les champs');
+            return redirect(route('register'));
+        }
+        if($request['password'] !== $request['password_confirmation']){
+            session()->put('error_message', 'Le mot de passe et le mot de passe de confirmation ne sont pas identiques!');
+            return redirect(route('register'));
+        }
+        $user_check = User::where('email', '=', $request['email'])->first();
+        if ($user_check !== null) {
+            session()->put('error_message', 'Cette adresse e-mail est déjà utilisée');
+            return redirect(route('register'));
+        }
         $user = new User();
         $user->firstname = $request['name'];
         $user->lastname = null;
         $user->email = $request['email'];
         $user->password = encrypt($request['password']);
         $user->save();
-        return view('auth.registerConfirmation');
+        session()->put('message', 'Vous êtes inscrit ! Vous pouvez vous connecter');
+        return redirect(route('login'));
     }
 }

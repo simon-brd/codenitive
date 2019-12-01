@@ -17,12 +17,12 @@ class UserSeeder extends Seeder
     public function createUser()
     {
         $faker = \Faker\Factory::create('fr_FR');
-        for ($i = 0; $i < 0; $i++){
+        for ($i = 0; $i < 5; $i++){
             $user = new \App\User();
             $user->email = $faker->email;
             $user->firstname = $faker->firstName;
             $user->lastname = $faker->lastName;
-            $user->password = $faker->password;
+            $user->password = encrypt('password');
             $user->save();
         }
     }

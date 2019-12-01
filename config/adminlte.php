@@ -49,7 +49,7 @@ return [
     |
     */
 
-    'layout_topnav' => null,
+    'layout_topnav' => true,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
@@ -134,7 +134,7 @@ return [
 
     'use_route_url' => true,
 
-    'dashboard_url' => 'allQuizz',
+    'dashboard_url' => '/quizz',
 
     'logout_url' => 'logout',
 
@@ -176,7 +176,7 @@ return [
         ['header' => 'MENU'],
         [
             'text' => 'Quizz',
-            'route'  => 'allQuizz',
+            'route'  => 'homeQuizz',
         ],
         [
             'text' => 'Mes Quizz',

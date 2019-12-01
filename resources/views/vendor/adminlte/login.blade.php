@@ -31,7 +31,7 @@
         </div>
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">{{ __('Se connecter à SafiVisit') }}</p>
+                <p class="login-box-msg">{{ __('Se connecter à ReflexYon') }}</p>
                 <form action="{{ $login_url }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </form>
-            <!--
+
                 <p class="mt-2 mb-1">
                     <a href="{{ $password_reset_url }}">
                         {{ __('J\'ai oublié mon mot de passe') }}
@@ -87,7 +87,7 @@
                         </a>
                     </p>
                 @endif
-                -->
+
             </div>
         </div>
     </div>

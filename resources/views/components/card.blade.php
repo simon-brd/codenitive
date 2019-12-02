@@ -15,7 +15,7 @@
             </div>
             <div style="width: 10%">
                 <button type="button" class="btn btn-block btn-primary ">LANCER</button>
-            </div>
+            </div><C></C>
         </div>
     </div>
 </div>

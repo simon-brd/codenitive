@@ -29,6 +29,12 @@
         <div class="login-logo">
             <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
+        @if(isset($message))
+            <div class="callout callout-success">
+                <h5>C'est bon !</h5>
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">{{ __('Se connecter à ReflexYon') }}</p>
@@ -75,11 +81,11 @@
                     </div>
                 </form>
 
-                <p class="mt-2 mb-1">
+                <!--<p class="mt-2 mb-1">
                     <a href="{{ $password_reset_url }}">
                         {{ __('J\'ai oublié mon mot de passe') }}
                     </a>
-                </p>
+                </p>-->
                 @if ($register_url)
                     <p class="mb-0">
                         <a href="{{ $register_url }}">

@@ -55,7 +55,12 @@ class LoginController extends Controller
 
     public function view()
     {
-        return view('auth.login');
+        $datas = [];
+        if(session()->exists('message')){
+            $datas['message'] = session()->get('message');
+            session()->remove('message');
+        }
+        return view('auth.login', $datas);
     }
 
     public function logout()

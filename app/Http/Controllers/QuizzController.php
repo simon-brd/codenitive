@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Quizz;
+use App\UserQuizz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,9 +42,21 @@ class QuizzController extends Controller
     // permet d'effectuer les checks d'iterations
     public function checkIterations()
     {
-        var_dump("ok");
+        $user_quizz = UserQuizz::all();
+        foreach ($user_quizz as $oneUserQuizz){
+            $quizz = $oneUserQuizz->quizz;
+            $user = $oneUserQuizz->user;
+            $note = $oneUserQuizz->note;
+
+            $iterations = $oneUserQuizz->iterations;
+            $nbIterations = count($iterations);
+            $decremeting = [2,1,0.5];
+
+            $limitNote = $quizz->limitNote;
+
+        }
     }
-    
+
     public function questions($id)
     {
         if (Auth::check()){

@@ -38,7 +38,9 @@ class UserQuizz extends Model
 
     public function save(array $options = [])
     {
-        $this->id = Str::random(32);
+        if(is_null($this->id)){
+            $this->id = Str::random(32);
+        }
         parent::save($options);
     }
 }

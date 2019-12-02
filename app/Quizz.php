@@ -38,4 +38,20 @@ class Quizz extends Model
     {
         //
     }
+
+    public function tags()
+    {
+        preg_match_all("/(#\w+)/", $this->label, $tags);
+        return $tags;
+    }
+
+    public function titleWithoutHashtag()
+    {
+        $tags = $this->tags();
+        $title = $this->label;
+        foreach ($tags as $tag){
+            $title = str_replace($tag,'',$this->label);
+        }
+        return $title;
+    }
 }

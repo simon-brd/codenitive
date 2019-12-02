@@ -1,9 +1,17 @@
 
-<div class="card bg-white collapsed-card">
+<div class="card bg-white collapsed-card quizz {{implode(' ',array_map(function($item){return substr($item,1);},$quizz->tags()))}}">
     <div class="card-header">
-        <h5 class="card-title">{{$quizz->titleWithoutHashtag()}}</h5>
+        <h5 class="card-title">
+            {{$quizz->titleWithoutHashtag()}}
+
+        </h5>
         <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
+            @foreach($quizz->tags() as $tag)
+                <span class="badge bg-green tagFilter" style="cursor: pointer">
+                 {{$tag}}
+                </span>
+            @endforeach
+                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
         </div>
     </div>
     <div class="card-body" style="display: none;">

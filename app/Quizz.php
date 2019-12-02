@@ -42,15 +42,16 @@ class Quizz extends Model
     public function tags()
     {
         preg_match_all("/(#\w+)/", $this->label, $tags);
-        return $tags;
+        return $tags[0];
     }
 
     public function titleWithoutHashtag()
     {
         $tags = $this->tags();
         $title = $this->label;
+        //var_dump($tags);
         foreach ($tags as $tag){
-            $title = str_replace($tag,'',$this->label);
+            $title = str_replace($tag,'',$title);
         }
         return $title;
     }

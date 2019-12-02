@@ -32,4 +32,13 @@ class QuizzController extends Controller
         }
         return view('auth.login');
     }
+
+    public function questions($id)
+    {
+        if (Auth::check()){
+            $quizz = Quizz::where('id',$id)->first();
+            return view('questions',['questions'=>$quizz->questions()]);
+        }
+        return view('auth.login');
+    }
 }

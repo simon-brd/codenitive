@@ -28,3 +28,5 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/register', 'Auth\RegisterController@view')->name('registerView');
 
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
+
+Route::get('/quizz/{id}','QuizzController@questions')->name('questions');

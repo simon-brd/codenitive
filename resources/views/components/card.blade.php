@@ -1,4 +1,4 @@
-@foreach($quizzs as $quizz)
+
 <div class="card bg-white collapsed-card">
     <div class="card-header">
         <h5 class="card-title">{{$quizz->label}}</h5>
@@ -8,15 +8,16 @@
     </div>
     <div class="card-body" style="display: none;">
         <div style="display: inline-flex; width: 100%" >
-            <div style="width: 90%">
+            <div style="width: 90%; margin-right: 10px;">
                 <p class="card-text">
                     {{$quizz->overview}}
                 </p>
             </div>
-            <div style="width: 10%">
-                <button type="button" class="btn btn-block btn-primary ">LANCER</button>
+            <div style="width: 10%;">
+                <form action="/quizz/{{$quizz->id}}">
+                    <button type="submit" class="btn btn-block btn-primary">LANCER</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-@endforeach

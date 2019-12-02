@@ -28,4 +28,9 @@ class Quizz extends Model
         $this->id = Str::random(32);
         parent::save();
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class)->orderBy('order')->get();
+    }
 }

@@ -11,7 +11,7 @@ class Answer extends Model
 
     protected $table = 'answer';
 
-    protected $fillable = ['question_id','user_id'];
+    protected $fillable = ['question_id','user_id','userResponse'];
 
     public $timestamps = false;
 

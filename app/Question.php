@@ -33,4 +33,9 @@ class Question extends Model
     {
         return json_decode($this->response)[0]->responses;
     }
+
+    public function correctResponses()
+    {
+        return json_decode($this->response)[0]->correctResponses;
+    }
 }

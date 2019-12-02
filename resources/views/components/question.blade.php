@@ -9,7 +9,7 @@
         <div class="form-group">
             @foreach($question->responses() as $response)
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="cbx1">
+                <input class="form-check-input" type="checkbox" name="{{$question->id}}[]" value="{{$response}}">
                 <label class="form-check-label">{{$response}}</label>
             </div>
             @endforeach

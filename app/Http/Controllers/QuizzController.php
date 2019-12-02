@@ -39,7 +39,17 @@ class QuizzController extends Controller
     }
 
     // permet d'effectuer les checks d'iterations
-    public function checkIterations() {
+    public function checkIterations()
+    {
         var_dump("ok");
+    }
+    
+    public function questions($id)
+    {
+        if (Auth::check()){
+            $quizz = Quizz::where('id',$id)->first();
+            return view('questions',['questions'=>$quizz->questions()]);
+        }
+        return view('auth.login');
     }
 }

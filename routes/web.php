@@ -31,3 +31,5 @@ Route::post('/register', 'Auth\RegisterController@register')->name('register');
 
 Route::get('/admin/checkquizz', 'QuizzController@checkView')->name('admin.checkquizz.view');
 Route::post('/admin/checkquizz', 'QuizzController@checkIterations')->name('admin.checkquizz.post');
+
+Route::get('/quizz/{id}','QuizzController@questions')->name('questions');

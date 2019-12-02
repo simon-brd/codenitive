@@ -48,35 +48,25 @@ class QuizzController extends Controller
     {
         $user_quizz = UserQuizz::all();
         foreach ($user_quizz as $oneUserQuizz){
-            $quizz = $oneUserQuizz->quizz;
             $note = $oneUserQuizz->note;
 
             $iterations = $oneUserQuizz->iterations;
             $nbIterations = count($iterations);
-            $decrementing = [2,1,0.5];
+            $decrementing = [
+                1 => 2, // A la premiere iteration il perd 2 points
+                2 => 1, // A la seconde iteration il perd 1 point
+                3 => 0.5]; // A la troisieme iteration ik perd 0.5 point
 
-            $limitNote = $quizz->limitNote;
+            $newNote = $note;
 
-            $newNote = 0;
-
-            switch ($nbIterations){
-                case 0: // Première phase d'iterations
-                    $newNote = $note - $decrementing[0];
-                    break;
-                case 1: // Seconde phase d'iterations
-                    $newNote = $note - $decrementing[1];
-                    break;
-                case 2: // Troisième phase d'iterations
-                    $newNote = $note - $decrementing[2];
-                    break;
-                default:
-                    $newNote = $note;
-                    break;
+            if($nbIterations <= 2){
+                $newNote = $note - $decrementing[$nbIterations];
             }
             $newNote = ($newNote < 0) ? 0 : $newNote;
             $oneUserQuizz->note = $newNote;
             $oneUserQuizz->save();
         }
+        return redirect(route('admin.checkquizz.view'));
     }
 
     public function questions($id)

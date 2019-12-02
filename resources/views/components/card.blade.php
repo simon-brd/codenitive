@@ -1,6 +1,6 @@
 @foreach($quizzs as $quizz)
-<div class="card bg-white">
-    <div class="card-header collapsed-card">
+<div class="card bg-white collapsed-card">
+    <div class="card-header">
         <h5 class="card-title">{{$quizz->label}}</h5>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
@@ -15,7 +15,7 @@
             </div>
             <div style="width: 10%">
                 <button type="button" class="btn btn-block btn-primary ">LANCER</button>
-            </div><C></C>
+            </div>
         </div>
     </div>
 </div>

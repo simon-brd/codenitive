@@ -184,11 +184,6 @@ return [
             'route'  => 'activeQuizz',
             'icon' => 'fa fa-tasks'
         ],
-        [
-            'text' => 'Quizz Archivés',
-            'route'  => 'archiveQuizz',
-            'icon' => 'fa fa-folder-open'
-        ],
     ],
 
     /*

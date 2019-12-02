@@ -33,4 +33,9 @@ class Quizz extends Model
     {
         return $this->hasMany(Question::class)->orderBy('order')->get();
     }
+
+    public function validate()
+    {
+        //
+    }
 }

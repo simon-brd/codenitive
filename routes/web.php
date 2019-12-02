@@ -33,3 +33,5 @@ Route::get('/admin/checkquizz', 'QuizzController@checkView')->name('admin.checkq
 Route::post('/admin/checkquizz', 'QuizzController@checkIterations')->name('admin.checkquizz.post');
 
 Route::get('/quizz/{id}','QuizzController@questions')->name('questions');
+
+Route::post('/quizz/{id}/validate','QuizzController@validate')->name('validate');

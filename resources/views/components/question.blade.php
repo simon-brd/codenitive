@@ -7,14 +7,12 @@
     </div>
     <div class="card-body">
         <div class="form-group">
+            @foreach($question->responses() as $response)
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="cbx1">
-                <label class="form-check-label">La Chine</label>
+                <label class="form-check-label">{{$response}}</label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="cbx2">
-                <label class="form-check-label">L'Italie</label>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

@@ -28,4 +28,9 @@ class Question extends Model
         $this->id = Str::random(32);
         parent::save($options);
     }
+
+    public function responses()
+    {
+        return json_decode($this->response)[0]->responses;
+    }
 }

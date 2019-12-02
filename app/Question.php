@@ -11,6 +11,8 @@ class Question extends Model
 
     protected $fillable = ['label','response','quizz_id','value','order','value'];
 
+    public $timestamps = false;
+
     public function getIncrementing()
     {
         return false;

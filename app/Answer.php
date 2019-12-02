@@ -2,6 +2,7 @@
 
 namespace App;
 
+use foo\bar;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -11,6 +12,8 @@ class Answer extends Model
     protected $table = 'answer';
 
     protected $fillable = ['question_id','user_id'];
+
+    public $timestamps = false;
 
     public function getIncrementing()
     {

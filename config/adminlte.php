@@ -136,7 +136,7 @@ return [
 
     'dashboard_url' => '/quizz',
 
-    'logout_url' => 'logout',
+    'logout_url' => '/logout',
 
     'login_url' => 'login',
 

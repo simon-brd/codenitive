@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Answer;
+use App\Iteration;
 use App\Question;
 use App\Quizz;
 use App\UserQuizz;
+use Carbon\Traits\Date;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -91,6 +93,19 @@ class QuizzController extends Controller
         $quizz = Quizz::where('id',$id)->first();
         $questions = $quizz->questions();
         $response = $request->post();
+        $scores = [];
+        $note = 0;
+
+        $userQuizz = new UserQuizz();
+        $userQuizz->user_id = Auth::user()->id;
+        $userQuizz->quizz_id = $quizz->id;
+        $userQuizz->save();
+
+        $iterations = new Iteration();
+        $iterations->user_quizz_id = $userQuizz->id;
+        $iterations->order = 1;
+        $iterations->date = date('Y-m-d H:i:s');
+        $iterations->save();
 
         foreach ($questions as $question) {
             $answer = new Answer();
@@ -98,8 +113,16 @@ class QuizzController extends Controller
             $answer->question_id = $question->id;
             $answer->userResponse = json_encode($response[$question->id]);
             $answer->save();
-        }
 
-        return view('validateQuizz',['quizz'=>$quizz, 'response'=>$response, 'questions'=>$quizz->questions()]);
+            $scores[$question->id] = $question->value;
+
+            if ($answer->userResponse == $response[$question->id]){
+                $note += $scores[$question->id];
+            }
+            $userQuizz->note = $note;
+            $iterations->note = $note;
+
+        }
+        return view('validateQuizz', ['quizz'=>$quizz,'note'=>$note]);
     }
 }

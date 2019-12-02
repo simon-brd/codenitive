@@ -12,6 +12,8 @@ class Iteration extends Model
 
     protected $fillable = ['user_quizz_id','order','date','note'];
 
+    public $timestamps = false;
+
     public function getIncrementing()
     {
         return false;

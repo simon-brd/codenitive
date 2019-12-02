@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class Quizz extends Model
@@ -32,10 +33,5 @@ class Quizz extends Model
     public function questions()
     {
         return $this->hasMany(Question::class)->orderBy('order')->get();
-    }
-
-    public function validate()
-    {
-        //
     }
 }

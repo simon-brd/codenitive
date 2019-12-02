@@ -32,4 +32,14 @@ class QuizzController extends Controller
         }
         return view('auth.login');
     }
+
+    // permet d'afficher la partie 'admin' pour la demo
+    public function checkView() {
+        return view('admin.checkquizz');
+    }
+
+    // permet d'effectuer les checks d'iterations
+    public function checkIterations() {
+        var_dump("ok");
+    }
 }

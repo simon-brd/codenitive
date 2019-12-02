@@ -3,6 +3,8 @@
 @section('title', 'Quizz')
 
 @section('content_header')
+    
+
     <div style="display: inline-flex; width: 100%;">
         <div style="width: 90%;">
             <h1>Quizz</h1>

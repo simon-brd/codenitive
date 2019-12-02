@@ -49,7 +49,6 @@ class Quizz extends Model
     {
         $tags = $this->tags();
         $title = $this->label;
-        //var_dump($tags);
         foreach ($tags as $tag){
             $title = str_replace($tag,'',$title);
         }

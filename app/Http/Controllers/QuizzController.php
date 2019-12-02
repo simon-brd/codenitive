@@ -59,7 +59,7 @@ class QuizzController extends Controller
                 case 0: // Première phase d'iterations
                     $newNote = $note - $decrementing[0];
                     break;
-                case 1: // Seconde phase d'iterations
+                case 1: // Seconde phase d'it   erations
                     $newNote = $note - $decrementing[1];
                     break;
                 case 2: // Troisième phase d'iterations

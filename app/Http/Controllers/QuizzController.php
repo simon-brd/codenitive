@@ -106,13 +106,16 @@ class QuizzController extends Controller
 
             $scores[$question->id] = $question->value;
 
-            if ($answer->userResponse == $response[$question->id]){
+            if (json_decode($answer->userResponse) == $question->correctResponses()){
                 $note += $scores[$question->id];
             }
-            $userQuizz->note = $note;
-            $iterations->note = $note;
-
         }
+
+        $userQuizz->note = $note;
+        $iterations->note = $note;
+        $userQuizz->save();
+        $iterations->save();
+
         return view('validateQuizz', ['quizz'=>$quizz,'note'=>$note]);
     }
 }

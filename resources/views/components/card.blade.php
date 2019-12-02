@@ -1,7 +1,7 @@
 
 <div class="card bg-white collapsed-card">
     <div class="card-header">
-        <h5 class="card-title">{{$quizz->label}}</h5>
+        <h5 class="card-title">{{$quizz->titleWithoutHashtag()}}</h5>
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i></button>
         </div>
